@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function Home() {
   const bgJokerUrl = '/bg-joker.jpg';
-  const paramImgUrl = '/param.png';
+  const paramImgUrl = '/param.png.jpg';
 
   const menus = [
     { id: 1, name: 'วิเคราะห์บอล', icon: '⚽' },
