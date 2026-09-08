@@ -177,6 +177,26 @@ export default function Home() {
           box-shadow: 0 6px 25px rgba(29, 206, 99, 0.6) !important;
         }
 
+        /* 💎 VIP Gold Shimmer Button - premium accent for main CTA */
+        @keyframes goldShimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+        .btn-gold-vip {
+          background: linear-gradient(110deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%) !important;
+          background-size: 200% 100% !important;
+          animation: goldShimmer 3s linear infinite !important;
+          color: #241a02 !important;
+          font-weight: 900 !important;
+          border: 1px solid rgba(255, 236, 179, 0.6) !important;
+          box-shadow: 0 4px 18px rgba(212, 175, 55, 0.45) !important;
+          transition: all 0.2s ease-in-out !important;
+        }
+        .btn-gold-vip:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 6px 24px rgba(212, 175, 55, 0.65) !important;
+        }
+
         /* 🖤 BC.GAME Secondary Dark Button Styling */
         .bc-btn-secondary {
           background: #212d3b !important;
@@ -248,10 +268,13 @@ export default function Home() {
                 fontWeight: 900,
                 fontSize: '1.45rem',
                 letterSpacing: '0.5px',
-                color: '#ffffff'
+                background: 'linear-gradient(135deg, #fcf6ba 0%, #d4af37 50%, #aa771c 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                filter: 'drop-shadow(0 0 6px rgba(212,175,55,0.35))'
               }}
             >
-              BOOMBER<span style={{ color: '#1dce63' }}>BET</span>
+              BOOMBER<span style={{ color: '#1dce63', WebkitTextFillColor: '#1dce63' }}>BET</span>
             </span>
           </div>
 
@@ -275,7 +298,7 @@ export default function Home() {
               href="https://lin.ee/u8r4wPq"
               target="_blank"
               rel="noopener noreferrer"
-              className="bc-btn-primary"
+              className="btn-gold-vip"
               style={{
                 textDecoration: 'none',
                 fontSize: '0.82rem',
@@ -366,6 +389,21 @@ export default function Home() {
               }}
             >
               ● LIVE SCANNER
+            </span>
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #fcf6ba 0%, #d4af37 50%, #aa771c 100%)',
+                color: '#241a02',
+                fontSize: '0.68rem',
+                padding: '4px 10px',
+                borderRadius: '6px',
+                fontWeight: '900',
+                marginBottom: '8px',
+                marginLeft: '6px',
+                boxShadow: '0 2px 10px rgba(212,175,55,0.4)'
+              }}
+            >
+              ✨ VIP
             </span>
             <div
               style={{
@@ -491,15 +529,17 @@ export default function Home() {
                   className="bc-card"
                   style={{
                     padding: '10px',
-                    position: 'relative'
+                    position: 'relative',
+                    border: index === 0 ? '1px solid rgba(212,175,55,0.6)' : undefined,
+                    boxShadow: index === 0 ? '0 0 20px rgba(212,175,55,0.25)' : undefined
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                     <span
                       style={{
-                        background: isTop3 ? 'rgba(29,206,99,0.2)' : '#101923',
-                        color: isTop3 ? '#1dce63' : '#98a7b5',
-                        border: isTop3 ? '1px solid rgba(29,206,99,0.4)' : '1px solid #243242',
+                        background: index === 0 ? 'linear-gradient(135deg, #fcf6ba 0%, #d4af37 50%, #aa771c 100%)' : isTop3 ? 'rgba(29,206,99,0.2)' : '#101923',
+                        color: index === 0 ? '#241a02' : isTop3 ? '#1dce63' : '#98a7b5',
+                        border: index === 0 ? '1px solid rgba(255,236,179,0.6)' : isTop3 ? '1px solid rgba(29,206,99,0.4)' : '1px solid #243242',
                         fontSize: '0.62rem',
                         fontWeight: '800',
                         padding: '2px 6px',
